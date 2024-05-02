@@ -200,7 +200,9 @@ postgres/postgres-data
 redis/
 backend/staticfiles
 media_volume/avatars
-*/migrations/*
+**/migrations/*.py
+**/migrations/*.pyc
+nginx/certificates/
 
 ###############################################################################
 ########## END OF THE FILES SPECIFIC TO THIS PROJECT ##########
