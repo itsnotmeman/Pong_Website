@@ -1,0 +1,61 @@
+# version: '3.8' This line is obsolete  with Docker 25.05 and up
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    networks:
+      - pong_website
+    env_file: backend/.env
+    expose:
+      - 5432
+    volumes:
+      - ./postgres/postgres-data:/var/lib/postgresql/data
+      - ./postgres/create_round.sql:/docker-entrypoint-initdb.d/create_round.sql
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    networks:
+      - pong_website
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - ./redis/data:/data
+
+  backend:
+    container_name: backend
+    init: true
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+      - ./media_volume:/usr/src/app/media
+    networks:
+      - pong_website
+    depends_on:
+      - postgres
+      - redis
+    env_file: backend/.env
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./media_volume:/usr/share/nginx/media
+    ports:
+      - 443:443
+      - 80:80
+    networks:
+      - pong_website
+    depends_on:
+      - backend
+
+
+networks:
+  pong_website:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local

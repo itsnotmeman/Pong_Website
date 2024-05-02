@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html lang="en-US">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pong</title>
+    <!-- font family -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Our own CSS. -->
+    <link href="css/game.css" rel="stylesheet" type="text/css">
+    <link href="css/chatapp.css" rel="stylesheet" type="text/css">
+    <link href="css/games.css" rel="stylesheet" type="text/css">
+    <link href="css/tournament.css" rel="stylesheet" type="text/css">
+    <!-- Our favicon. -->
+    <link rel="icon" href="favicon.ico">
+    <!-- Bootstrap. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://rawcdn.githack.com/mrdoob/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <style>
+      #header {
+      margin-bottom: 20px;
+      }
+      body {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card w-100 d-flex align-items-center" id="header" style="background-color: #333; padding: 0 15px;">
+      <div>
+        <h1 id="h1" style="color: white;">Pong_Website</h1>
+        <input type="hidden" id="curr_id" name="curr_id">
+      </div>
+      <div id="userTool" class="d-flex align-items-center" style="color: white;">
+        <!-- Avatar, Welcome message, and Logout button will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start">
+
+      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+          type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
+
+        <button disabled class="nav-link" id="v-pills-game-tab" data-bs-toggle="pill" data-bs-target="#v-pills-game"
+          type="button" role="tab" aria-controls="v-pills-game" aria-selected="false">Game</button>
+
+        <button disabled class="nav-link" id="v-pills-chat-tab" data-bs-toggle="pill" data-bs-target="#v-pills-chat"
+          type="button" role="tab" aria-controls="v-pills-chat" aria-selected="false">Chat</button>
+
+        <button disabled class="nav-link" id="v-pills-tournament-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-tournament" type="button" role="tab" aria-controls="v-pills-tournament"
+          aria-selected="false">Tournament</button>
+
+        <button disabled class="nav-link" id="v-pills-stats-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stats"
+          type="button" role="tab" aria-controls="v-pills-stats" aria-selected="false">Friends & Players</button>
+
+        <button disabled class="nav-link" id="v-pills-games-tab" data-bs-toggle="pill" data-bs-target="#v-pills-games"
+          type="button" role="tab" aria-controls="v-pills-games" aria-selected="false">Game Lobby</button>
+
+      </div>
+
+      <div class="tab-content" id="v-pills-tabContent">
+
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0"></div>
+
+        <div class="tab-pane fade" id="v-pills-game" role="tabpanel" aria-labelledby="v-pills-game-tab" tabindex="0">
+          <canvas id="gameCanvas" width="800" height="600" tabindex='1'>
+            This is the canvas on which the game "Pong" can be played.
+          </canvas>
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-chat" role="tabpanel" aria-labelledby="v-pills-chat-tab" tabindex="0"></div>
+
+        <div class="tab-pane fade" id="v-pills-tournament" role="tabpanel" aria-labelledby="v-pills-tournament-tab" tabindex="0"></div>
+
+        <div class="tab-pane fade" id="v-pills-stats" role="tabpanel" aria-labelledby="v-pills-stats-tab" tabindex="0"></div>
+
+        <div class="tab-pane fade" id="v-pills-games" role="tabpanel" aria-labelledby="v-pills-games-tab" tabindex="0"></div>
+
+      </div>
+
+    </div>
+
+    <script src="scripts/game.js"></script>
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/tournament.js"></script>
+    <script src="scripts/chatapp.js"></script>
+    <script src="scripts/games.js"></script>
+    <script src="scripts/friends_players.js"></script>
+    
+    <!-- Bootstrap. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+      
+    <script src="scripts/main.js"></script>
+
+  </body>
+</html>

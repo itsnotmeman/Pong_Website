@@ -1,0 +1,14 @@
+#gameList {
+    min-width: 800px;
+}
+.games-title {
+    font-size: 24px; 
+}
+
+.table-responsive {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.btn-primary .btn-secondary {
+    margin-top: 10px;  /* Adjust the margin as needed */
+}
